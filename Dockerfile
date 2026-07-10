@@ -18,4 +18,5 @@ COPY . .
 
 EXPOSE 8080
 
-CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:8080", "app:app"]
+# Shell form so the runtime-injected $PORT variable is expanded.
+CMD gunicorn -w 4 -b 0.0.0.0:${PORT:-8080} app:app
