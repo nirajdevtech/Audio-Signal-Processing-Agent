@@ -16,9 +16,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy application source
 COPY . .
 
+# Make the entrypoint executable
+RUN chmod +x start.sh
+
 EXPOSE 8080
 
-# Exec form (no shell) — port is resolved by gunicorn.conf.py in Python,
-# which reads os.environ['PORT'] directly. This avoids shell expansion
-# issues on platforms that inject $PORT without a shell intermediary.
-CMD ["gunicorn", "--config", "gunicorn.conf.py", "app:app"]
+# start.sh expands $PORT in /bin/sh before exec-ing gunicorn, so the
+# port is always resolved regardless of how the platform invokes this image.
+CMD ["/app/start.sh"]
