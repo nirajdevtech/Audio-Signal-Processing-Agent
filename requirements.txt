@@ -22,7 +22,8 @@ Werkzeug==3.0.3
 python-dotenv==1.0.1
 
 # IBM Watsonx.ai SDK (foundation model inference)
-ibm-watsonx-ai==1.1.2
+# Installed via requirements-nodeps.txt (--no-deps) to bypass the
+# pandas<2.2.0 upper bound in its metadata; see Dockerfile.
 # Override ibm-watsonx-ai's pandas<2.2.0 upper bound: 2.2.x is ABI-compatible
 # and ships pre-built wheels for Python 3.13 (2.1.x does not).
 pandas>=2.2.2

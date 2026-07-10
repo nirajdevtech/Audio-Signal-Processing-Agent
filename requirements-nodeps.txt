@@ -1,0 +1,16 @@
+# ============================================================
+# requirements-nodeps.txt
+#
+# Packages that must be installed WITHOUT dependency resolution
+# because their published metadata contains an overly-restrictive
+# upper bound that conflicts with a pin in requirements.txt.
+#
+# Usage (see Dockerfile):
+#   pip install --no-deps -r requirements-nodeps.txt
+#   pip install -r requirements.txt
+# ============================================================
+
+# ibm-watsonx-ai 1.1.2 declares pandas<2.2.0, but 2.2.x is
+# runtime-compatible. Installing without deps lets pip honour the
+# pandas>=2.2.2 pin in requirements.txt without a resolver conflict.
+ibm-watsonx-ai==1.1.2
