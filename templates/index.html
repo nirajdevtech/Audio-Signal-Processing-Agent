@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Audio Signal Processing Assistant | IBM Granite AI</title>
+  <meta name="description"
+        content="AI-powered Audio Signal Processing Assistant using IBM Granite. Design, analyse and troubleshoot audio electronics circuits." />
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+<!-- =====================================================================
+     NAVIGATION BAR
+     ===================================================================== -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+  <div class="container">
+    <!-- Brand -->
+    <a class="navbar-brand d-flex align-items-center gap-2" href="/">
+      <span class="brand-icon"><i class="bi bi-soundwave"></i></span>
+      <span class="brand-text">AudioAI <span class="brand-sub">Assistant</span></span>
+    </a>
+
+    <!-- Mobile toggle -->
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarNav" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
+        <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+        <li class="nav-item"><a class="nav-link" href="#topics">Topics</a></li>
+        <li class="nav-item"><a class="nav-link" href="#how-it-works">How It Works</a></li>
+        <li class="nav-item ms-lg-3">
+          <a class="btn btn-accent btn-sm px-4" href="/chat">
+            <i class="bi bi-chat-dots-fill me-1"></i>Start Chat
+          </a>
+        </li>
+        <!-- Dark mode toggle -->
+        <li class="nav-item ms-2">
+          <button id="darkToggle" class="btn btn-sm btn-outline-secondary rounded-pill px-3"
+                  aria-label="Toggle dark mode">
+            <i class="bi bi-moon-stars-fill"></i>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- =====================================================================
+     HERO SECTION
+     ===================================================================== -->
+<header class="hero-section d-flex align-items-center" id="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="container position-relative">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <!-- Badge -->
+        <div class="hero-badge mb-4">
+          <i class="bi bi-cpu-fill me-2"></i>Powered by IBM Granite AI
+        </div>
+        <!-- Headline -->
+        <h1 class="hero-title">
+          AI Audio Signal<br />
+          <span class="gradient-text">Processing Assistant</span>
+        </h1>
+        <p class="hero-subtitle mt-3 mb-4">
+          Design, analyse, and troubleshoot audio electronics circuits using
+          the power of IBM Watsonx.ai and IBM Granite foundation models.
+          Built for students, engineers, and audio designers.
+        </p>
+        <div class="d-flex flex-wrap gap-3">
+          <a href="/chat" class="btn btn-accent btn-lg px-5 py-3">
+            <i class="bi bi-chat-dots-fill me-2"></i>Start Chat
+          </a>
+          <a href="#features" class="btn btn-outline-hero btn-lg px-5 py-3">
+            <i class="bi bi-arrow-down-circle me-2"></i>Learn More
+          </a>
+        </div>
+        <!-- Stats row -->
+        <div class="hero-stats mt-5 d-flex flex-wrap gap-4">
+          <div class="stat-item">
+            <span class="stat-number">30+</span>
+            <span class="stat-label">Topics Covered</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">IBM</span>
+            <span class="stat-label">Granite AI</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">24/7</span>
+            <span class="stat-label">Always Available</span>
+          </div>
+        </div>
+      </div>
+      <!-- Hero visual -->
+      <div class="col-lg-6 d-none d-lg-block">
+        <div class="hero-visual">
+          <div class="waveform-container">
+            <svg viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg" class="waveform-svg">
+              <polyline class="wave wave-1"
+                points="0,80 20,40 40,80 60,20 80,80 100,50 120,80 140,30 160,80 180,55 200,80 220,25 240,80 260,45 280,80 300,35 320,80 340,50 360,80 380,40 400,80"/>
+              <polyline class="wave wave-2"
+                points="0,80 20,60 40,80 60,50 80,80 100,65 120,80 140,55 160,80 180,70 200,80 220,60 240,80 260,68 280,80 300,58 320,80 340,65 360,80 380,60 400,80"/>
+              <polyline class="wave wave-3"
+                points="0,80 25,90 50,80 75,95 100,80 125,88 150,80 175,93 200,80 225,90 250,80 275,92 300,80 325,87 350,80 375,91 400,80"/>
+            </svg>
+          </div>
+          <!-- Floating info cards -->
+          <div class="float-card float-card-1">
+            <i class="bi bi-volume-up-fill text-accent"></i>
+            <span>Low-Pass Filter Designed</span>
+          </div>
+          <div class="float-card float-card-2">
+            <i class="bi bi-graph-up text-success"></i>
+            <span>Noise Reduced by 32 dB</span>
+          </div>
+          <div class="float-card float-card-3">
+            <i class="bi bi-lightning-charge-fill text-warning"></i>
+            <span>THD: 0.003%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- =====================================================================
+     FEATURE CARDS
+     ===================================================================== -->
+<section class="section-padding bg-surface" id="features">
+  <div class="container">
+    <div class="section-header text-center mb-5">
+      <h2 class="section-title">What Can I Help You With?</h2>
+      <p class="section-subtitle">
+        From circuit diagnosis to filter design — your AI engineering partner.
+      </p>
+    </div>
+    <div class="row g-4">
+      <!-- Card 1 -->
+      <div class="col-sm-6 col-lg-4">
+        <div class="feature-card h-100" data-aos="fade-up">
+          <div class="feature-icon feature-icon--blue">
+            <i class="bi bi-activity"></i>
+          </div>
+          <h5 class="feature-title mt-3">Noise Analysis</h5>
+          <p class="feature-text">
+            Diagnose hum, buzz, hiss, ground loops, EMI interference, and
+            power supply ripple. Get step-by-step repair guidance.
+          </p>
+          <a href="/chat?q=Why+is+my+amplifier+humming" class="feature-link mt-auto">
+            Try it <i class="bi bi-arrow-right ms-1"></i>
+          </a>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="col-sm-6 col-lg-4">
+        <div class="feature-card h-100" data-aos="fade-up" data-aos-delay="100">
+          <div class="feature-icon feature-icon--purple">
+            <i class="bi bi-funnel-fill"></i>
+          </div>
+          <h5 class="feature-title mt-3">Filter Design</h5>
+          <p class="feature-text">
+            Design Butterworth, Chebyshev, Low Pass, High Pass, Band Pass
+            and Notch filters with formulas and component values.
+          </p>
+          <a href="/chat?q=Design+a+2kHz+low+pass+filter" class="feature-link mt-auto">
+            Try it <i class="bi bi-arrow-right ms-1"></i>
+          </a>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="col-sm-6 col-lg-4">
+        <div class="feature-card h-100" data-aos="fade-up" data-aos-delay="200">
+          <div class="feature-icon feature-icon--green">
+            <i class="bi bi-tools"></i>
+          </div>
+          <h5 class="feature-title mt-3">Amplifier Debugging</h5>
+          <p class="feature-text">
+            Fix Class A, B, AB, D amplifier problems. Diagnose clipping,
+            thermal runaway, crossover distortion, and oscillation.
+          </p>
+          <a href="/chat?q=My+Class+AB+amplifier+is+clipping" class="feature-link mt-auto">
+            Try it <i class="bi bi-arrow-right ms-1"></i>
+          </a>
+        </div>
+      </div>
+      <!-- Card 4 -->
+      <div class="col-sm-6 col-lg-4">
+        <div class="feature-card h-100" data-aos="fade-up" data-aos-delay="300">
+          <div class="feature-icon feature-icon--orange">
+            <i class="bi bi-book-fill"></i>
+          </div>
+          <h5 class="feature-title mt-3">Audio Learning</h5>
+          <p class="feature-text">
+            Learn CMRR, PSRR, THD, SNR, slew rate, gain-bandwidth product,
+            negative feedback, and Bode plots explained clearly.
+          </p>
+          <a href="/chat?q=Explain+Total+Harmonic+Distortion" class="feature-link mt-auto">
+            Try it <i class="bi bi-arrow-right ms-1"></i>
+          </a>
+        </div>
+      </div>
+      <!-- Card 5 -->
+      <div class="col-sm-6 col-lg-4">
+        <div class="feature-card h-100" data-aos="fade-up" data-aos-delay="400">
+          <div class="feature-icon feature-icon--red">
+            <i class="bi bi-cpu"></i>
+          </div>
+          <h5 class="feature-title mt-3">Component Suggestions</h5>
+          <p class="feature-text">
+            Get specific op-amp, audio IC, capacitor, and resistor
+            recommendations with datasheets and alternative part numbers.
+          </p>
+          <a href="/chat?q=Best+op-amp+for+microphone+preamp" class="feature-link mt-auto">
+            Try it <i class="bi bi-arrow-right ms-1"></i>
+          </a>
+        </div>
+      </div>
+      <!-- Card 6 -->
+      <div class="col-sm-6 col-lg-4">
+        <div class="feature-card h-100" data-aos="fade-up" data-aos-delay="500">
+          <div class="feature-icon feature-icon--teal">
+            <i class="bi bi-shield-check"></i>
+          </div>
+          <h5 class="feature-title mt-3">PCB Design Tips</h5>
+          <p class="feature-text">
+            Improve audio PCB layout, ground planes, trace routing, component
+            placement, and shielding for minimum noise.
+          </p>
+          <a href="/chat?q=How+to+reduce+PCB+noise+in+audio" class="feature-link mt-auto">
+            Try it <i class="bi bi-arrow-right ms-1"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     TOPICS SECTION
+     ===================================================================== -->
+<section class="section-padding" id="topics">
+  <div class="container">
+    <div class="section-header text-center mb-5">
+      <h2 class="section-title">Supported Engineering Topics</h2>
+      <p class="section-subtitle">Comprehensive coverage of audio electronics disciplines.</p>
+    </div>
+    <div class="topics-grid">
+      <span class="topic-tag"><i class="bi bi-soundwave me-1"></i>Audio Amplifiers</span>
+      <span class="topic-tag"><i class="bi bi-lightning me-1"></i>Class A/B/AB/D</span>
+      <span class="topic-tag"><i class="bi bi-funnel me-1"></i>Op-Amps</span>
+      <span class="topic-tag"><i class="bi bi-sliders me-1"></i>Low Pass Filters</span>
+      <span class="topic-tag"><i class="bi bi-sliders me-1"></i>High Pass Filters</span>
+      <span class="topic-tag"><i class="bi bi-sliders me-1"></i>Band Pass Filters</span>
+      <span class="topic-tag"><i class="bi bi-sliders me-1"></i>Notch Filters</span>
+      <span class="topic-tag"><i class="bi bi-graph-up me-1"></i>Butterworth</span>
+      <span class="topic-tag"><i class="bi bi-graph-up me-1"></i>Chebyshev</span>
+      <span class="topic-tag"><i class="bi bi-noise-reduction me-1"></i>Noise Reduction</span>
+      <span class="topic-tag"><i class="bi bi-diagram-3 me-1"></i>Ground Loops</span>
+      <span class="topic-tag"><i class="bi bi-broadcast me-1"></i>EMI / RFI</span>
+      <span class="topic-tag"><i class="bi bi-grid me-1"></i>PCB Design</span>
+      <span class="topic-tag"><i class="bi bi-bar-chart me-1"></i>THD</span>
+      <span class="topic-tag"><i class="bi bi-bar-chart me-1"></i>SNR</span>
+      <span class="topic-tag"><i class="bi bi-bar-chart me-1"></i>CMRR / PSRR</span>
+      <span class="topic-tag"><i class="bi bi-speaker me-1"></i>Speaker Protection</span>
+      <span class="topic-tag"><i class="bi bi-mic me-1"></i>Microphone Circuits</span>
+      <span class="topic-tag"><i class="bi bi-equalizer me-1"></i>Audio Equalizers</span>
+      <span class="topic-tag"><i class="bi bi-sliders2 me-1"></i>Audio Mixers</span>
+      <span class="topic-tag"><i class="bi bi-thermometer me-1"></i>Thermal Design</span>
+      <span class="topic-tag"><i class="bi bi-arrow-repeat me-1"></i>Negative Feedback</span>
+      <span class="topic-tag"><i class="bi bi-zoom-in me-1"></i>Gain & Bandwidth</span>
+      <span class="topic-tag"><i class="bi bi-cpu me-1"></i>Instrumentation Amps</span>
+      <span class="topic-tag"><i class="bi bi-shield me-1"></i>EMI Shielding</span>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     HOW IT WORKS
+     ===================================================================== -->
+<section class="section-padding bg-surface" id="how-it-works">
+  <div class="container">
+    <div class="section-header text-center mb-5">
+      <h2 class="section-title">How It Works</h2>
+      <p class="section-subtitle">Three simple steps to solve your audio engineering challenges.</p>
+    </div>
+    <div class="row g-4 justify-content-center">
+      <div class="col-md-4 text-center">
+        <div class="step-card">
+          <div class="step-number">01</div>
+          <div class="step-icon"><i class="bi bi-chat-text-fill"></i></div>
+          <h5 class="mt-3">Describe Your Problem</h5>
+          <p class="text-muted">Type your audio engineering question naturally — no special commands needed.</p>
+        </div>
+      </div>
+      <div class="col-md-4 text-center">
+        <div class="step-card">
+          <div class="step-number">02</div>
+          <div class="step-icon"><i class="bi bi-cpu-fill"></i></div>
+          <h5 class="mt-3">IBM Granite Analyses</h5>
+          <p class="text-muted">IBM Granite AI processes your query using deep electronics engineering knowledge.</p>
+        </div>
+      </div>
+      <div class="col-md-4 text-center">
+        <div class="step-card">
+          <div class="step-number">03</div>
+          <div class="step-icon"><i class="bi bi-file-earmark-check-fill"></i></div>
+          <h5 class="mt-3">Get Structured Solution</h5>
+          <p class="text-muted">Receive a detailed response with diagnosis, solutions, formulas, and component tips.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     CTA SECTION
+     ===================================================================== -->
+<section class="cta-section section-padding">
+  <div class="container">
+    <div class="cta-card text-center">
+      <h2 class="cta-title">Ready to Solve Your Audio Challenge?</h2>
+      <p class="cta-subtitle">
+        Ask anything about audio signal processing — from beginner to expert level.
+      </p>
+      <a href="/chat" class="btn btn-accent btn-lg px-5 py-3 mt-3">
+        <i class="bi bi-chat-dots-fill me-2"></i>Launch AI Assistant
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     FOOTER
+     ===================================================================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+        <span class="footer-brand"><i class="bi bi-soundwave me-2"></i>AudioAI Assistant</span>
+        <span class="footer-sep mx-2">|</span>
+        <span class="text-muted small">Powered by IBM Granite &amp; Watsonx.ai</span>
+      </div>
+      <div class="col-md-6 text-center text-md-end">
+        <span class="text-muted small">
+          Built for IBM SkillsBuild &amp; Hackathons &nbsp;·&nbsp;
+          &copy; 2024 Audio Signal Processing Assistant
+        </span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Custom JS -->
+<script src="/static/script.js"></script>
+</body>
+</html>
