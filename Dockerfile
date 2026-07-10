@@ -18,5 +18,7 @@ COPY . .
 
 EXPOSE 8080
 
-# Shell form so the runtime-injected $PORT variable is expanded.
-CMD gunicorn -w 4 -b 0.0.0.0:${PORT:-8080} app:app
+# Exec form (no shell) — port is resolved by gunicorn.conf.py in Python,
+# which reads os.environ['PORT'] directly. This avoids shell expansion
+# issues on platforms that inject $PORT without a shell intermediary.
+CMD ["gunicorn", "--config", "gunicorn.conf.py", "app:app"]
