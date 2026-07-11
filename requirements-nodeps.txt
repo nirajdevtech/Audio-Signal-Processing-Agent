@@ -1,16 +1,21 @@
 # ============================================================
 # requirements-nodeps.txt
 #
-# Packages that must be installed WITHOUT dependency resolution
-# because their published metadata contains an overly-restrictive
-# upper bound that conflicts with a pin in requirements.txt.
+# Packages installed with --no-deps (see Dockerfile step 1).
 #
-# Usage (see Dockerfile):
-#   pip install --no-deps -r requirements-nodeps.txt
-#   pip install -r requirements.txt
+# ibm-watsonx-ai 1.1.2 declares pandas<2.2.0 in its metadata.
+# Installing it and its entire dependency tree with --no-deps
+# means pip never registers that bound against the installed
+# packages, silencing the post-install conflict warning.
 # ============================================================
 
-# ibm-watsonx-ai 1.1.2 declares pandas<2.2.0, but 2.2.x is
-# runtime-compatible. Installing without deps lets pip honour the
-# pandas>=2.2.2 pin in requirements.txt without a resolver conflict.
+# ibm-watsonx-ai and its full transitive dependency tree
 ibm-watsonx-ai==1.1.2
+ibm-cos-sdk==2.13.5
+ibm-cos-sdk-core==2.13.5
+ibm-cos-sdk-s3transfer==2.13.5
+jmespath==1.0.1
+python-dateutil==2.9.0.post0
+lomond==0.3.3
+tabulate==0.10.0
+importlib-metadata==9.0.0

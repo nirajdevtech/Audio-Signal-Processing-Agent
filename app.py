@@ -43,6 +43,13 @@ IBM_PROJECT_ID = os.getenv("IBM_PROJECT_ID", "")
 IBM_URL        = os.getenv("IBM_URL", "https://us-south.ml.cloud.ibm.com")
 IBM_MODEL_ID   = os.getenv("IBM_MODEL_ID", "ibm/granite-13b-chat-v2")
 
+# Log credential presence at startup (values are never logged, only presence)
+logging.getLogger(__name__).info(
+    "Credential check — IBM_API_KEY: %s, IBM_PROJECT_ID: %s",
+    "SET" if IBM_API_KEY else "MISSING",
+    "SET" if IBM_PROJECT_ID else "MISSING",
+)
+
 # ---------------------------------------------------------------------------
 # AGENT INSTRUCTIONS
 # Modify this section to customise the AI assistant's personality, tone,
