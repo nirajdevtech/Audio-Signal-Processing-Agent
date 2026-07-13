@@ -1,385 +1,348 @@
-<<<<<<< HEAD
-# 🎵 Audio Signal Processing Assistant
+# 🎧 Audio Signal Processing Assistant Agent
 
-> **AI-powered audio electronics engineering assistant built with Python Flask and IBM Watsonx.ai (IBM Granite foundation models).**
+<div align="center">
 
-Designed for students, electronics engineers, hobbyists, and audio designers who want to troubleshoot, analyse, and design audio signal processing circuits using the power of generative AI.
+![Python](https://img.shields.io/badge/Python-3.11-blue?style=for-the-badge&logo=python)
+![Flask](https://img.shields.io/badge/Flask-Web_App-black?style=for-the-badge&logo=flask)
+![IBM](https://img.shields.io/badge/IBM-watsonx.ai-blue?style=for-the-badge&logo=ibm)
+![Granite](https://img.shields.io/badge/IBM-Granite_AI-1261FE?style=for-the-badge)
+![Railway](https://img.shields.io/badge/Deployed_on-Railway-0B0D0E?style=for-the-badge&logo=railway)
 
----
+### 🚀 AI-powered Audio Circuit Troubleshooting using IBM watsonx.ai & Granite Foundation Models
 
-## 📋 Table of Contents
-
-- [Features](#-features)
-- [Tech Stack](#-tech-stack)
-- [Project Structure](#-project-structure)
-- [IBM Cloud Setup](#-ibm-cloud-setup)
-- [Installation](#-installation)
-- [Environment Variables](#-environment-variables)
-- [Running the Application](#-running-the-application)
-- [Deployment](#-deployment)
-- [API Reference](#-api-reference)
-- [Customising the AI Agent](#-customising-the-ai-agent)
-- [Screenshots](#-screenshots)
+</div>
 
 ---
 
-## ✨ Features
+# 🌐 Live Demo
 
-| Feature | Description |
-|---|---|
-| 🤖 **AI Chat Assistant** | Natural language Q&A for audio engineering problems |
-| 🔩 **Circuit Diagnosis** | Cause analysis, diagnosis steps, and recommended solutions |
-| 🔩 **Filter Designer** | Formulas, component values, and circuit explanations |
-| ⚡ **Audio Troubleshooter** | Fixes buzzing, hum, oscillation, clipping, ground loops |
-| 📐 **Component Recommendation** | Op-amps, audio ICs, capacitors, resistors, transistors |
-| 📚 **Learning Mode** | Explains CMRR, PSRR, THD, SNR, slew rate, and more |
-| 💡 **Engineering Tips** | Practical industry-grade PCB and circuit design advice |
-| 🌙 **Dark Mode** | Toggle between light and dark themes |
-| 📱 **Responsive UI** | Works on desktop, tablet, and mobile |
+### 🔗 Public Deployment
+
+**https://web-production-95151.up.railway.app/**
 
 ---
 
-## 🛠 Tech Stack
+# 📌 Project Overview
 
-| Layer | Technology |
-|---|---|
-| **Backend** | Python 3.10+, Flask 3.0 |
-| **AI Model** | IBM Watsonx.ai — IBM Granite (`ibm/granite-13b-chat-v2`) |
-| **AI SDK** | `ibm-watsonx-ai` Python SDK |
-| **Frontend** | HTML5, Bootstrap 5.3, Bootstrap Icons |
-| **Markdown** | Marked.js (client-side rendering) |
-| **Config** | python-dotenv `.env` file |
-| **Deployment** | Gunicorn (WSGI), IBM Cloud, Heroku, Railway |
+The **Audio Signal Processing Assistant Agent** is an AI-powered web application that helps students, engineers, and electronics enthusiasts diagnose and solve common audio circuit problems.
+
+Using **IBM watsonx.ai** and the **IBM Granite Foundation Model**, the assistant understands natural language questions and provides intelligent troubleshooting suggestions for:
+
+- 🔊 Audio Amplifiers
+- 🎚️ Active & Passive Filters
+- 🎛️ Operational Amplifiers
+- ⚡ Power Supply Noise
+- 🔇 EMI & Ground Loop Problems
+- 📡 Signal Conditioning
+- 🎵 Audio Distortion Analysis
 
 ---
 
-## 📁 Project Structure
+# 🎯 Problem Statement
+
+**Problem Statement No. 32 – Audio Signal Processing Assistant Agent**
+
+Develop an AI-powered assistant capable of:
+
+- Detecting amplifier noise
+- Explaining circuit faults
+- Recommending filter designs
+- Reducing distortion
+- Solving grounding issues
+- Assisting with op-amp circuit debugging
+
+---
+
+# ✨ Features
+
+✅ AI-powered Audio Circuit Diagnosis
+
+✅ IBM Granite Foundation Model Integration
+
+✅ Intelligent Troubleshooting
+
+✅ Filter Design Recommendations
+
+✅ Noise Reduction Techniques
+
+✅ Ground Loop Detection
+
+✅ Audio Distortion Analysis
+
+✅ Modern Responsive UI
+
+✅ Railway Cloud Deployment
+
+---
+
+# 🖥️ Tech Stack
+
+| Technology | Purpose |
+|------------|----------|
+| Python | Backend |
+| Flask | Web Framework |
+| HTML5 | Frontend |
+| CSS3 | Styling |
+| JavaScript | User Interaction |
+| IBM watsonx.ai | AI Platform |
+| IBM Granite 4 H Small | Foundation Model |
+| Railway | Cloud Deployment |
+| GitHub | Version Control |
+
+---
+
+# 🏗️ System Architecture
 
 ```
-audio-signal-processing-assistant/
+
+User
+
 │
-├── app.py                    # Flask backend + IBM Watsonx.ai integration
-├── requirements.txt          # Python dependencies
-├── .env.example              # Environment variable template
-├── .env                      # Your credentials (DO NOT commit)
-├── .gitignore                # Git ignore rules
-├── README.md                 # This file
+
+▼
+
+Flask Web Application
+
 │
-├── templates/
-│   ├── index.html            # Landing page
-│   └── chat.html             # Chat interface
+
+▼
+
+Prompt Engineering
+
 │
-└── static/
-    ├── style.css             # Master stylesheet (light + dark mode)
-    ├── script.js             # Chat engine, dark mode, UI logic
-    └── images/               # Static image assets
+
+▼
+
+IBM watsonx.ai Runtime
+
+│
+
+▼
+
+IBM Granite Foundation Model
+
+│
+
+▼
+
+AI Response
+
+│
+
+▼
+
+User Interface
+
 ```
 
 ---
 
-## ☁️ IBM Cloud Setup
+# 🚀 Installation
 
-### Step 1 — Create an IBM Cloud Account
-
-1. Go to [cloud.ibm.com](https://cloud.ibm.com/registration) and register for a **free Lite account**.
-
-### Step 2 — Create an IBM Watsonx.ai Project
-
-1. Navigate to [dataplatform.cloud.ibm.com](https://dataplatform.cloud.ibm.com)
-2. Click **New project** → **Create an empty project**
-3. Enter a project name (e.g. `Audio AI Assistant`)
-4. Copy the **Project ID** from the project settings page
-
-### Step 3 — Get Your API Key
-
-1. Go to [cloud.ibm.com/iam/apikeys](https://cloud.ibm.com/iam/apikeys)
-2. Click **Create an IBM Cloud API key**
-3. Give it a name and copy the key immediately (it won't be shown again)
-
-### Step 4 — Note the Service URL
-
-- **US South (default):** `https://us-south.ml.cloud.ibm.com`
-- **EU DE:** `https://eu-de.ml.cloud.ibm.com`
-- **JP Tok:** `https://jp-tok.ml.cloud.ibm.com`
-
-Use the URL that matches your Watsonx.ai instance region.
-
-### Step 5 — Choose a Granite Model
-
-Recommended for Lite accounts:
-```
-ibm/granite-13b-chat-v2
-```
-
-Other available models:
-```
-ibm/granite-3-8b-instruct
-ibm/granite-7b-lab
-```
-
----
-
-## ⚙️ Installation
-
-### Prerequisites
-
-- Python 3.10 or higher
-- `pip` package manager
-- IBM Cloud account with Watsonx.ai access
-
-### 1. Clone the Repository
+## Clone Repository
 
 ```bash
-git clone https://github.com/your-username/audio-signal-processing-assistant.git
-cd audio-signal-processing-assistant
+git clone https://github.com/nirajdevtech/Audio-Signal-Processing-Agent.git
+
+cd Audio-Signal-Processing-Agent
 ```
 
-### 2. Create a Virtual Environment
+---
+
+## Create Virtual Environment
 
 ```bash
-# Windows
 python -m venv venv
-venv\Scripts\activate
+```
 
-# macOS / Linux
-python3 -m venv venv
+Windows
+
+```bash
+venv\Scripts\activate
+```
+
+Linux / Mac
+
+```bash
 source venv/bin/activate
 ```
 
-### 3. Install Dependencies
+---
+
+## Install Requirements
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Configure Environment Variables
-
-```bash
-# Copy the example file
-cp .env.example .env
-```
-
-Then open `.env` and fill in your IBM credentials (see next section).
-
 ---
 
-## 🔑 Environment Variables
+# ⚙️ Environment Variables
 
-Edit the `.env` file with your IBM Cloud details:
+Create a `.env` file.
 
 ```env
-# IBM Cloud API Key (from IBM IAM)
-IBM_API_KEY=your_ibm_cloud_api_key_here
+IBM_API_KEY=YOUR_API_KEY
 
-# Watsonx.ai Project ID
-IBM_PROJECT_ID=your_watsonx_project_id_here
+IBM_PROJECT_ID=YOUR_PROJECT_ID
 
-# Watsonx.ai Service URL (region-specific)
-IBM_URL=https://us-south.ml.cloud.ibm.com
+IBM_URL=https://eu-de.ml.cloud.ibm.com
 
-# IBM Granite Model ID
-IBM_MODEL_ID=ibm/granite-13b-chat-v2
-
-# Flask settings (optional)
-FLASK_SECRET_KEY=change-this-to-a-random-secret
-FLASK_DEBUG=false
-PORT=5000
+IBM_MODEL_ID=ibm/granite-4-h-small
 ```
-
-> ⚠️ **Never commit your `.env` file to version control.** Add `.env` to your `.gitignore`.
 
 ---
 
-## 🚀 Running the Application
-
-### Development Server
+# ▶️ Run Project
 
 ```bash
 python app.py
 ```
 
-Open your browser at: **http://localhost:5000**
+Open
 
-### With Gunicorn (Production)
-
-```bash
-gunicorn -w 4 -b 0.0.0.0:5000 app:app
+```
+http://127.0.0.1:5000
 ```
 
 ---
 
-## 🌐 Deployment
+# 💬 Example Questions
 
-### Option 1 — IBM Cloud Code Engine
+- Why is my amplifier producing a 50Hz hum?
 
-```bash
-# Install IBM Cloud CLI
-ibmcloud login --apikey $IBM_API_KEY -r us-south
+- How can I reduce distortion in my op-amp circuit?
 
-# Create and deploy
-ibmcloud ce project create --name audio-ai-assistant
-ibmcloud ce app create \
-  --name audio-ai-assistant \
-  --image us.icr.io/your-namespace/audio-ai:latest \
-  --env-from-secret audio-ai-secrets
+- Design a 1kHz low-pass filter.
+
+- Why is my speaker crackling?
+
+- Explain crossover distortion.
+
+- How do I eliminate ground loop noise?
+
+- Recommend a Butterworth filter.
+
+---
+
+# 📂 Project Structure
+
 ```
 
-### Option 2 — Railway (Recommended for Quick Deploy)
+Audio-Signal-Processing-Agent/
 
-1. Push code to GitHub
-2. Go to [railway.app](https://railway.app) → **New Project** → **Deploy from GitHub**
-3. Add environment variables in the Railway dashboard
-4. Railway auto-detects Python and deploys
+│
 
-### Option 3 — Heroku
+├── static/
 
-```bash
-# Create Procfile
-echo "web: gunicorn app:app" > Procfile
+├── templates/
 
-heroku create audio-ai-assistant
-heroku config:set IBM_API_KEY=your_key
-heroku config:set IBM_PROJECT_ID=your_project_id
-heroku config:set IBM_URL=https://us-south.ml.cloud.ibm.com
-heroku config:set IBM_MODEL_ID=ibm/granite-13b-chat-v2
-git push heroku main
-```
+├── app.py
 
-### Option 4 — Docker
+├── requirements.txt
 
-```dockerfile
-FROM python:3.11-slim
-WORKDIR /app
-COPY requirements.txt .
-RUN pip install -r requirements.txt
-COPY . .
-EXPOSE 5000
-CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "app:app"]
-```
+├── Dockerfile
 
-```bash
-docker build -t audio-ai-assistant .
-docker run -p 5000:5000 --env-file .env audio-ai-assistant
+├── Procfile
+
+├── .env.example
+
+└── README.md
+
 ```
 
 ---
 
-## 🔌 API Reference
+# 📸 Screenshots
 
-### `POST /api/chat`
+## Home Page
 
-Send a user message and receive an AI response.
-
-**Request Body:**
-```json
-{
-  "message": "Why is my amplifier humming?",
-  "history": [
-    { "role": "user",      "content": "previous question" },
-    { "role": "assistant", "content": "previous answer" }
-  ]
-}
-```
-
-**Response:**
-```json
-{
-  "status":   "success",
-  "response": "**🔍 Problem**\n...",
-  "model":    "ibm/granite-13b-chat-v2"
-}
-```
-
-### `GET /api/health`
-
-Health check endpoint for monitoring.
-
-**Response:**
-```json
-{
-  "status":      "healthy",
-  "model":       "ibm/granite-13b-chat-v2",
-  "model_ready": true,
-  "version":     "1.0.0"
-}
-```
+(Add Screenshot)
 
 ---
 
-## 🧠 Customising the AI Agent
+## AI Chat Interface
 
-The AI agent's personality, tone, engineering depth, and safety rules are fully configurable in [`app.py`](app.py) inside the `AGENT_INSTRUCTIONS` constant:
-
-```python
-AGENT_INSTRUCTIONS = """
-You are an expert AI Audio Signal Processing Assistant...
-
-PERSONALITY & TONE:
-- Professional, precise, and encouraging
-...
-
-RESPONSE FORMAT:
-**🔍 Problem**
-**⚠️ Possible Causes**
-**🔬 Diagnosis**
-**✅ Recommended Solution**
-**💡 Engineering Tips**
-**📐 Formula**
-**🔩 Component Recommendation**
-**🛡️ Safety Notes**
-...
-"""
-```
-
-You can:
-- Change the assistant's **name or persona**
-- Adjust **engineering depth** (beginner vs. expert)
-- Modify the **response format**
-- Add or remove **supported topics**
-- Update **safety rules**
+(Add Screenshot)
 
 ---
 
-## 🛡️ Security Notes
+## IBM Granite Response
 
-- Store all secrets in `.env` — never hardcode credentials
-- Add `.env` to `.gitignore` before your first commit
-- Rotate your IBM Cloud API key regularly
-- Use environment variables in all deployment platforms
+(Add Screenshot)
 
 ---
 
-## 📄 .gitignore Recommendation
+# 🌍 Deployment
 
-```
-.env
-venv/
-__pycache__/
-*.pyc
-*.pyo
-.DS_Store
-*.log
-```
+### Railway
+
+https://web-production-95151.up.railway.app/
 
 ---
 
-## 📜 License
+# 📈 Future Enhancements
 
-MIT License — Free for personal, educational, and commercial use.
+- 🎙️ Voice Assistant
+
+- 📊 Audio Waveform Analysis
+
+- 📈 Frequency Spectrum Visualization
+
+- 📱 Android Application
+
+- 🌐 Multi-language Support
+
+- 🤖 PCB Fault Detection
+
+- 🎛️ LTspice Integration
+
+- 📡 Oscilloscope Signal Analysis
 
 ---
 
-## 🤝 Acknowledgements
+# 👨‍💻 Developer
 
-- **IBM Watsonx.ai** — Foundation model platform
-- **IBM Granite** — Open-source AI foundation models by IBM Research
-- **IBM SkillsBuild** — Training and internship program
-- **Bootstrap** — UI framework
-- **Marked.js** — Markdown rendering
+**Niraj Kumar**
+
+Electronics & Communication Engineering
+
+LNCT Bhopal
+
+GitHub
+
+https://github.com/nirajdevtech
 
 ---
 
-*Built with ❤️ for IBM SkillsBuild Internship & Hackathons*
-=======
-# Audio-Signal-Processing-Agent
->>>>>>> 11d4efc955d22b5e20f753f2c9c29ccb377ac220
+# 🙏 Acknowledgements
+
+- IBM SkillsBuild
+
+- IBM watsonx.ai
+
+- IBM Granite Foundation Models
+
+- Railway
+
+- Flask Community
+
+---
+
+# ⭐ Support
+
+If you like this project,
+
+⭐ Star this repository
+
+🍴 Fork it
+
+📢 Share it
+
+---
+
+<div align="center">
+
+## 🚀 Built with ❤️ using IBM watsonx.ai & Granite AI
+
+</div>
