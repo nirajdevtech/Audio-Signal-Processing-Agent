@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🎵 Audio Signal Processing Assistant
 
 > **AI-powered audio electronics engineering assistant built with Python Flask and IBM Watsonx.ai (IBM Granite foundation models).**
@@ -379,3 +380,6 @@ MIT License — Free for personal, educational, and commercial use.
 ---
 
 *Built with ❤️ for IBM SkillsBuild Internship & Hackathons*
+=======
+# Audio-Signal-Processing-Agent
+>>>>>>> 11d4efc955d22b5e20f753f2c9c29ccb377ac220
